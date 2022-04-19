@@ -3,13 +3,18 @@
 ## Contexte du projet
 
 ```
-Dans le cadre de faciliter de suivi des dossiers des patients au Maroc, le groupe CNSS a lancé un appel d'offre pour la création d'une application bureau qui va être installé dans tous le réseau des agences CNSS Maroc.
+Dans le cadre de faciliter de suivi des dossiers des patients au Maroc, le groupe CNSS a lancé un appel d'offre pour 
+la création d'une application bureau qui va être installé dans tous le réseau des agences CNSS Maroc.
 
-l'application MaCNSS va permettre aux agents CNSS de suivre en toute simplicité les dossiers de remboursement de chaque patient qui inscrit à la CNSS.
+l'application MaCNSS va permettre aux agents CNSS de suivre en toute simplicité les dossiers de remboursement 
+de chaque patient qui inscrit à la CNSS.
 
-chaque Agent a un compte dans l'application, pour qu'il puisse accéder à l'application, il doit saisir l'email + mot de passe avec un code vérification envoyé sur son boite email valable (5min)
+chaque Agent a un compte dans l'application, pour qu'il puisse accéder à l'application,
+il doit saisir l'email + mot de passe avec un code vérification envoyé sur son boite email valable (5min)
 
-quand le patient arrive à l'agence, il dépose son dossier de remboursement, qui est constitué obligatoirement d'un formulaire CNSS, ce dossier est identifié par le matirucule du patient, par la suite chaque patient peut joindre le code barre (si nécessaire)de chaque médicament préscrit sur l'ordonnonce
+quand le patient arrive à l'agence, il dépose son dossier de remboursement, qui est constitué obligatoirement d'un formulaire CNSS,
+ce dossier est identifié par le matirucule du patient,
+par la suite chaque patient peut joindre le code barre (si nécessaire)de chaque médicament préscrit sur l'ordonnonce
 
 le patient peut joindre aussi les analyses de laboratoire
 
@@ -33,7 +38,7 @@ Développer une API qui va :
 
 • envoyer le montant remboursé vers le compte du bénéficiaire
 
-• Réaliser une base de données adéquate en prennant considération le compte patient est déjà crée tous les compléments alimentaire ne sont par remboursables, ni les     médicaments liés à la dérmatologie
+• Réaliser une base de données adéquate en prennant considération le compte patient est déjà crée tous les compléments alimentaire ne sont par remboursables, ni les    médicaments liés à la dérmatologie
 
 • Envoyer un Email descriptif de votre travail à **********@simplon.co
 
