@@ -35,7 +35,7 @@ Développer une API qui va :
 
 • Réaliser une base de données adéquate en prennant considération le compte patient est déjà crée tous les compléments alimentaire ne sont par remboursables, ni les     médicaments liés à la dérmatologie
 
-• Envoyer un Email descriptif de votre travail à myoussefsbai@simplon.co
+• Envoyer un Email descriptif de votre travail à **********@simplon.co
 
 
 
