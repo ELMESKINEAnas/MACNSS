@@ -15,6 +15,7 @@ const createformulaireCNSS = (req,res) => {
             email,
             score
         });
+        const cnam = getAllUsermedidq
         newUserAdmis.save(async (err, user) => {
             if (err) {
                 return res.status(500).json({

@@ -12,12 +12,28 @@ const formulaireSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
-    score : {
+    rembousement : {
         type: Number,
         required: true,
+        default: 0,
     },
-    immatricule : {
-        type: String,
+    matirucule : {
+        type: Buffer,
+        required: true,
+        default: {}
+    },
+    medicament : {
+        type: Buffer,
+        required: true,
+        default: {}
+    },
+    analyses : {
+        type: Buffer,
+        required: true,
+        default: {}
+    },
+    date : {
+        type: Date,
         required: true,
     },
 });

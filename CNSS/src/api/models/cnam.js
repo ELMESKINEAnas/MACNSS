@@ -20,6 +20,6 @@ const cnamSchema = new mongoose.Schema({
         type : {
             type: mongoose.Schema.Types.ObjectId,
             ref : 'Type',
-        }
+        },
 });
-
+export default mongoose.model('Cnam', cnamSchema);

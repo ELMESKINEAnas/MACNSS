@@ -1,5 +1,4 @@
 import Agent from '../models/agent.js';
-// import userAdmis from '../models/userAdmis.js';
 import jwt from 'jsonwebtoken';
 const {
     genSaltSync,
@@ -8,7 +7,7 @@ const {
 } = require("bcrypt");
 
 
-// create admin
+// create agent
 const createAgent = (req, res) => {
     const {
         username,
@@ -23,7 +22,7 @@ const createAgent = (req, res) => {
         }
         if (agent) {
             return res.status(400).json({
-                message: "Admin already exists"
+                message: "Agent already exists"
             });
         }
         const salt = genSaltSync(10);
@@ -40,7 +39,7 @@ const createAgent = (req, res) => {
                 });
             }
             return res.status(201).json({
-                message: "Admin created successfully",
+                message: "Agent created successfully",
                 agent
             });
         });
@@ -60,7 +59,7 @@ const authenticate = (req, res) => {
         }
         if (!agent) {
             return res.status(400).send({
-                message: "admin not found"
+                message: "agent not found"
             });
         }
         if (!compareSync(req.body.password, agent.password)) {
