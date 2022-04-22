@@ -1,0 +1,50 @@
+import mongoose from 'mongoose';
+
+
+// export interface CnamDocument extends patientFile, mongoose.Document {
+//     createdAt: Date;
+//     updatedAt: Date;
+// }
+
+export const patientSchema = new mongoose.Schema(
+    {
+        firstName: {
+            type: String,
+        },
+        lastName: {
+            type: String,
+        },
+        email: {
+            type: String,
+        },
+        phone: {
+            type: Number,
+        },
+        fileRef: {
+            type: Number,
+        },
+        address: {
+            type: String,
+        },
+        city: {
+            type: String,
+        },
+        state: {
+            type: String,
+        },
+        file: {
+            type: String
+        },
+        medicine: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Cnam',
+        }],
+
+    },
+    {timestamps: true}
+);
+
+const PatientModel = mongoose.model('PatientFile', patientSchema);
+
+
+export default PatientModel;
