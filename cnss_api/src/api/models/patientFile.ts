@@ -35,6 +35,12 @@ export const patientSchema = new mongoose.Schema(
         file: {
             type: String
         },
+        immatriculation: {
+            type: String
+        },
+        password: {
+            type: String
+        },
         medicine: [{
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Cnam',
