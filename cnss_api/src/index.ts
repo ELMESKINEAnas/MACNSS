@@ -5,12 +5,14 @@ import 'dotenv/config';
 import mongoose from "mongoose";
 import Prouter from "./api/routes/patient.routes";
 import Arouter from "./api/routes/agent.routes";
+import cors from 'cors';
 
 require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors());
 
 
 

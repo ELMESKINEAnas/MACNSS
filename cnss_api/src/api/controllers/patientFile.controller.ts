@@ -6,34 +6,6 @@ const { randomUUID } = require('crypto'); // Added in: node v14.17.0;
 import {comparePassword} from "../../helpers/jwtVerification";
 import bcrypt from "bcryptjs";
 
-
-// '89rct5ac2-8493-49b0-95d8-de843d90e6ca
-
-interface patientType {
-    firstName: {
-        type: string,
-    },
-    lastName: {
-        type: string,
-    },
-    email: {
-        type: string,
-    },
-    price: {
-        type: number
-    }
-    fileRef: {
-        type: number
-    },
-    immatriculation : {
-        type : string
-    },
-    password: {
-        type: string
-    }
-}
-
-
 export const getAllPatient = async (req: Request, res: Response) => {
     try {
         const patient = await Patient.find();
@@ -55,14 +27,14 @@ export const getPatientById = async (req: Request, res: Response) => {
 
 export const createPatient = async (req: Request, res: Response) => {
     
-    const {firstName, lastName, email,password, medicine, fileRef, address, city , state} = req.body
+    const {firstName, lastName, email, medicine, fileRef, address, city , state , file , phone} = req.body
     try {
         const existingPatient = await Patient.findOne({ email })
 
         if (existingPatient) return res.status(400).json({ message: "Patient already exists" })
 
+        let password = "1234";
         const hashedPassword = await bcrypt.hash(password, 10)
-        // generate unique token
         const patient = new Patient({
             firstName,
             lastName,
@@ -70,11 +42,12 @@ export const createPatient = async (req: Request, res: Response) => {
             medicine,
             fileRef,
             address,
+            phone,
             password : hashedPassword,
             city,
             state,
             immatriculation: randomUUID(),
-            file: req.file?.filename
+            file
         });
         await patient.save();
         res.status(201).json(patient);
@@ -91,7 +64,6 @@ export const PatientLogin = async (req: Request, res: Response) => {
         const existingPatient = await Patient.findOne({ immatriculation })
         if (!existingPatient) return res.status(404).json({ message: "Patient not found" })
         await comparePassword(password, existingPatient, res)
-        // res.status(200).json({ message: "Login Successful" })
     } catch (error: any) {
         res.status(404).json({ message: error.message })
     }
@@ -116,7 +88,12 @@ export const checkFileAndSendMain = async (req: Request, res: Response) => {
         })
         const {firstName, lastName, email, fileRef} = patientInfo
 
-
+        await Patient.findByIdAndUpdate(req.params.id,{
+            $set: {
+                status: "refunded",
+                refundedPrice : price
+            }
+        })
         await sendMail(email, firstName, lastName, price, fileRef)
 
         res.json({total: patientMedicine, price: price, receiver: patientInfo})
@@ -127,3 +104,12 @@ export const checkFileAndSendMain = async (req: Request, res: Response) => {
     }
 }
 
+export const GetPatientFiles = async (req: Request, res: Response) => {
+
+    try {
+        const patientFiles = await Patient.findById(req.params.id).populate('patientFile');
+        res.json(patientFiles);
+    } catch (err: any) {
+        res.status(500).json({message: err.message});
+    }
+}

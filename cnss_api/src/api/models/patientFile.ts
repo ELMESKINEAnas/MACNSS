@@ -23,8 +23,16 @@ export const patientSchema = new mongoose.Schema(
         fileRef: {
             type: Number,
         },
+        status: {
+            type: String,
+            default: 'pending'
+        },
         address: {
             type: String,
+        },
+        refundedPrice : {
+            type: Number,
+            default: 0
         },
         city: {
             type: String,
@@ -45,6 +53,7 @@ export const patientSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Cnam',
         }],
+
 
     },
     {timestamps: true}

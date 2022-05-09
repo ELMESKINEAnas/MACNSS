@@ -4,7 +4,7 @@ import {AgentLogin, AgentRegister} from "../controllers/agent.controller";
 const Arouter = express.Router();
 
 
-Arouter.get('/login', AgentLogin);
+Arouter.post('/login', AgentLogin);
 Arouter.post('/register', AgentRegister);
 
 
